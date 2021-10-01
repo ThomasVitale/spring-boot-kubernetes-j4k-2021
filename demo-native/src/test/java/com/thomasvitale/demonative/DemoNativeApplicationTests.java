@@ -17,7 +17,7 @@ class DemoNativeApplicationTests {
                 .get()
                 .exchange()
                 .expectStatus().isOk()
-                .expectBody(String.class).isEqualTo("Spring Boot to the cloud!");
+                .expectBody(String.class).isEqualTo("Spring Native to the cloud!");
     }
 
 }
