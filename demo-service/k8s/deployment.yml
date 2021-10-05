@@ -4,8 +4,12 @@ metadata:
   name: demo-service
   labels:
     app: demo-service
+  annotations:
+    prometheus.io/scrape: "true"
+    prometheus.io/path: "/actuator/prometheus"
+    prometheus.io/port: "8080"
 spec:
-  replicas: 2
+  replicas: 1
   selector:
     matchLabels:
       app: demo-service
@@ -20,6 +24,12 @@ spec:
           image: thomasvitale/demo-service-j4k:1.0
           ports:
             - containerPort: 8080
+          resources:
+            requests:
+              memory: "756Mi"
+              cpu: "0.2"
+            limits:
+              memory: "756Mi"
           lifecycle:
             preStop:
               exec:

@@ -11,3 +11,8 @@ data:
     spring:
       lifecycle:
         timeout-per-shutdown-phase: 15s
+    management:
+      endpoints:
+        web:
+          exposure:
+            include: health,prometheus
